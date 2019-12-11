@@ -14,21 +14,23 @@
         <input type="text" id="user">
     </div>
     <div>
-        <label for="password">密&emsp;码</label>
+        <label for="password">密&emsp;码:</label>
         <input type="password" id="password">
     </div>
     <div>
-        <button id="login">登录</button><br>
+        <button id="login">登录</button>
         <button id="register">注册</button>
     </div>
 </body>
 <script>
     $(function(){
-        $('#register').click(function(){
-            $.ajax({
-                type : "POST",
-                url : "http://localhost:8080/register",
-                date : {
+        $('#login').click(function(){
+            if($("#user").val()){
+                if($("#password").val()){
+                $.ajax({
+                type : "post",
+                url : "http://localhost:8080/login",
+                data : {
                     username : $("#user").val(),
                     password : $("#password").val()
                 },
@@ -39,6 +41,40 @@
                     alert(err)
                 }
             })
+                }
+                else{
+                    alert('密码不能为空')
+                }
+            }
+            else{
+                alert('用户名不能为空')
+            }
+        })
+        $('#register').click(function(){
+            if($("#user").val()){
+                if($("#password").val()){
+                $.ajax({
+                type : "post",
+                url : "http://localhost:8080/register",
+                data : {
+                    username : $("#user").val(),
+                    password : $("#password").val()
+                },
+                success : function(res){
+                    alert(res)
+                },
+                error : function(err){
+                    alert(err)
+                }
+            })
+                }
+                else{
+                    alert('密码不能为空')
+                }
+            }
+            else{
+                alert('用户名不能为空')
+            }
         })
     })
 </script>
