@@ -84,8 +84,8 @@ http.createServer(function (req, res) {
             }
         })
     })
-}).listen(8080, function (err) {
+}).listen(3000, function (err) {
     if (!err) {
-        console.log("成功创建服务器，端口号为8080")
+        console.log("成功创建服务器，端口号为3000")
     }
 })
