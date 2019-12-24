@@ -15,7 +15,6 @@ connection.connect();
 http.createServer(function (req, res) {
     //设置请求头，允许所有域名访问，解决跨域请求
     res.setHeader("Access-Control-Allow-Origin", "*");
-    //定义一个post变量，暂时存储Post请求信息
     var pathName = url.parse(req.url).pathname;
     if(pathName=="/msg"){
         res.writeHead(200, { 'Content-Type': 'text/plain', 'charset' : 'uft-8'});
