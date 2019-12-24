@@ -1,0 +1,31 @@
+#game{
+	border: 5px solid black;
+	height: 600px;
+	width: 500px;
+	margin:0 auto;
+}
+.h1{
+	text-align: center;
+}
+#p1{
+	text-align: center;
+}
+#p2{
+	text-align: center;
+}
+#button{
+	float: right;
+	margin-right: 200px;
+	width: 100px;
+	height: 60px;
+}
+#table{
+	width: 300px;
+	height: 300px;
+	text-align:center;
+	margin:0 auto;
+}
+tr,td{
+	width: 18%;
+	height: 18%;
+}
