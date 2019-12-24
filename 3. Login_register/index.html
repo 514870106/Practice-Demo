@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>登录、注册</title>
+    <!-- jquery插件 -->
+	<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"></script>
+</head>
+<body>
+    <div>
+        <label for="user">用户名:</label>
+        <input type="text" id="user">
+    </div>
+    <div>
+        <label for="password">密&emsp;码:</label>
+        <input type="password" id="password">
+    </div>
+    <div>
+        <button id="login">登录</button>
+        &emsp;&emsp;
+        <button id="register">注册</button>
+    </div>
+</body>
+<script>
+    $(function(){
+        //登录
+        $('#login').click(function(){
+            if($("#user").val()){
+                if($("#password").val()){
+                $.ajax({
+                type : "post",
+                url : "http://localhost:3000/login",
+                data : {
+                    username : $("#user").val(),
+                    password : $("#password").val()
+                },
+                success : function(res){
+                    alert(res)
+                },
+                error : function(err){
+                    alert(err)
+                }
+            })
+                }
+                else{
+                    alert('密码不能为空')
+                }
+            }
+            else{
+                alert('用户名不能为空')
+            }
+        })
+        //注册
+        $('#register').click(function(){
+            if($("#user").val()){
+                if($("#password").val()){
+                $.ajax({
+                type : "post",
+                url : "http://localhost:3000/register",
+                data : {
+                    username : $("#user").val(),
+                    password : $("#password").val()
+                },
+                success : function(res){
+                    alert(res)
+                },
+                error : function(err){
+                    alert(err)
+                }
+            })
+                }
+                else{
+                    alert('密码不能为空')
+                }
+            }
+            else{
+                alert('用户名不能为空')
+            }
+        })
+    })
+</script>
+</html>
